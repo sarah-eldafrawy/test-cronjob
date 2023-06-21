@@ -34,7 +34,7 @@ jobs:
       - name: Dump database
         run: |
           mongodump --version
-          mongodump --uri="mongodb+srv://sarahTest:passwordTest@cluster0.lui3n.mongodb.net/?retryWrites=true&w=majority" --out=./databaseDump --verbose
+          mongodump --uri="mongodb://cluster0.lui3n.mongodb.net/?retryWrites=true&w=majority" --out=./databaseDump --username sarahTest --password passwordTest --verbose
           echo After Database Dump
           ls ./databaseDump
 
