@@ -29,13 +29,14 @@ jobs:
           wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
           mongorestore --version
+          echo After Installation
+          ls ./databaseDump
       - name: Dump database
         run: |
           mongodump --version
           mongodump --uri="mongodb+srv://sarahTest:passwordTest@cluster0.lui3n.mongodb.net/?retryWrites=true&w=majority" --out="databaseDump"
-          ls
-          cd ./databaseDump
-          ls
+          echo After Database Dump
+          ls ./databaseDump
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
