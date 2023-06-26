@@ -1,14 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 # db uri "mongodb+srv://sarahTest:passwordTest@cluster0.lui3n.mongodb.net/?retryWrites=true&w=majority"
-name: CI
+name: DataBase Backup
 
 # Controls when the workflow will run
 on:
-  push:
-   branches: main
-  # Triggers the workflow every 5 minutes
-#   schedule:
-#     - cron: "*/5 * * * *"
+  schedule:
+    - cron: "0 */6 * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,12 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          mkdir databaseDump
-          echo Add other actions to build, >> ./databaseDump/test-file.txt
-          echo test, and deploy your project.
       - name: Setup mongodb-tools
         run: |
           wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
@@ -34,7 +25,7 @@ jobs:
       - name: Dump database
         run: |
           mongodump --version
-          mongodump mongodb+srv://cluster0.lui3n.mongodb.net/ --apiVersion 1 --db db1 --out=./databaseDump --username sarahTest --password 9svQDdSx7gNm6Wi --verbose
+          mongodump mongodb+srv://cluster0.lui3n.mongodb.net/ --db db1 --out=./databaseDump --username sarahTest --password 9svQDdSx7gNm6Wi --verbose
           echo After Database Dump
           ls ./databaseDump
 
