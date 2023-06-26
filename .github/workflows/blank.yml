@@ -34,7 +34,7 @@ jobs:
       - name: Dump database
         run: |
           mongodump --version
-          mongodump mongodb+srv://cluster0.lui3n.mongodb.net/ --db db1 --out=./databaseDump --username sarahTest --password passwordTest --verbose
+          mongodump mongodb+srv://cluster0.lui3n.mongodb.net/ --db db1 --out=./databaseDump --username sarahTest --password 9svQDdSx7gNm6Wi --verbose
           echo After Database Dump
           ls ./databaseDump
 
