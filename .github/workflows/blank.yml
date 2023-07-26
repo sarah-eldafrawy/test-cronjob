@@ -31,7 +31,7 @@ jobs:
           mongodump mongodb+srv://cluster0.lui3n.mongodb.net/ --db db1 --out=./databaseDump --username sarahTest --password aaBxbOg35p5x7s4r --verbose
           echo After Database Dump
           ls ./databaseDump
-          mongorestore --db db-restore-test --username sarahTest --password aaBxbOg35p5x7s4r mongodb+srv://cluster0.lui3n.mongodb.net/ ./databaseDump
+          mongorestore --db db-restore-test --username sarahTest --password aaBxbOg35p5x7s4r mongodb+srv://cluster0.lui3n.mongodb.net/ ./databaseDump/db1
 
 #       - name: Upload a Build Artifact
 #         uses: actions/upload-artifact@v3.1.2
